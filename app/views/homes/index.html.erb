@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#">Shops Registration</a>
+	</div>
+	</div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+	<div class="col-sm-3 col-md-2 sidebar">
+	  <ul class="nav nav-sidebar">
+		<li><a></a></li>
+		<li><a></a></li>
+		<li><a></a></li>
+		<li><%= link_to "Register Shops", create_shop_homes_path, :remote=>true %></li>
+		<li><%= link_to "Display Registered Shops", "display_shop_homes_path", :remote=>true%></li>
+	  </ul>
+	</div>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="register_shops">
+		<h1 class="page-header">Shops Maping</h1>
+		<p class="text-danger"><%= flash[:success] %><p>
+	</div>
+  </div>
+</div>

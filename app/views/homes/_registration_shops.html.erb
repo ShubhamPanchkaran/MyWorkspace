@@ -1,0 +1,46 @@
+<script type="text/javascript">
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+});
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
+  handler.map.centerOn(marker);
+};
+   
+</script>
+<h1 class="page-header">Register Shop</h1>
+<div class="row placeholders">
+<div class="col-xs-6 col-sm-3 placeholder">
+<%= form_for :home, :url => { :action => "save_registered_shop" } do |f| %>
+  <div class="form-group">
+	<label for="shopname">Shop Name</label>
+	<p><%= f.text_field :shopname, class: 'form-control', :required => true %></p>
+  </div>
+  <div class="form-group">
+	<label for="address">Address</label>
+	<p><%= f.text_area :address, class: 'form-control', rows: '4', cols: '20', :required => true %></p>
+  </div>
+  <div class="form-group">
+	<label for="description">Description</label>
+	<p><%= f.text_area :description, class: 'form-control', rows: '4', cols: '20', :required => true %></p>
+  </div>
+  <div class="form-group">
+	<label for="InputFile">Upload an Image</label>
+	<%= f.file_field :image, :required => true, accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+  <%= f.submit :Submit, class: 'btn btn-primary', :as => :button %>
+<% end %>
+</div>
+<div class="col-xs-6 col-sm-3 placeholder">
+  <div style='width: 800px;'>
+    <div id="geolocation" style='width: 800px; height: 400px;'></div>
+  </div>
+  <h4>Set your shop location by clicking on map</h4>
+</div>
+</div>

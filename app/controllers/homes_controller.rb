@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 	def index
-		@shop = Shop.new
+	
 	end
 	
 	#Method to show form for register shops
